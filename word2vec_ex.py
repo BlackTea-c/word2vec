@@ -53,7 +53,11 @@ print(lines[0:5])#预览前5行分词结果
 # 调用Word2Vec训练
 # 参数：size: 词向量维度；window: 上下文的宽度，min_count为考虑计算的单词的最低词频阈值
 model = Word2Vec(lines,vector_size = 20, window = 2 , min_count = 3, epochs=7, negative=10,sg=1)
-print("孔明的词向量：\n",model.wv.get_vector('孔明'))
+
+print("孔明的词向量：\n",model.wv.get_vector('孔明'))  #主要就是这个！！！ 词向量表示！！！
+
+
+
 print("\n和孔明相关性最高的前20个词语：")
 w=model.wv.most_similar('孔明', topn = 20)# 与孔明最相关的前20个词语
 print(w)
